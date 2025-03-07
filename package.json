@@ -1,0 +1,121 @@
+{
+  "name": "CookieChimp-Segment-Wrapper",
+  "version": "0.0.0-development",
+  "description": "CookieChimp wrapper for Segment",
+  "main": "./lib/index.js",
+  "files": [
+    "lib/**/*"
+  ],
+  "scripts": {
+    "build": "tsc --project tsconfig.build.json",
+    "clean": "rm -rf ./lib/",
+    "cm": "cz",
+    "lint": "eslint ./src/ --fix",
+    "prepare": "husky install",
+    "semantic-release": "semantic-release",
+    "test:watch": "jest --watch",
+    "test": "jest --coverage",
+    "typecheck": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IdentitySquare/CookieChimp-Segment-Wrapper.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Daniel Paul",
+    "email": "danielpaul@users.noreply.github.com",
+    "url": "https://github.com/danielpaul"
+  },
+  "engines": {
+    "node": ">=12.0"
+  },
+  "keywords": [
+    "CookieChimp",
+    "Segment",
+    "wrapper",
+    "consent",
+    "analytics"
+  ],
+  "bugs": {
+    "url": "https://github.com/IdentitySquare/CookieChimp-Segment-Wrapper/issues"
+  },
+  "homepage": "https://github.com/IdentitySquare/CookieChimp-Segment-Wrapper#readme",
+  "devDependencies": {
+    "@ryansonshine/commitizen": "^4.2.8",
+    "@ryansonshine/cz-conventional-changelog": "^3.3.4",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^12.20.55",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "conventional-changelog-conventionalcommits": "^5.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.10.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.4.1",
+    "husky": "^6.0.0",
+    "jest": "^27.5.1",
+    "lint-staged": "^15.4.3",
+    "prettier": "^2.8.8",
+    "semantic-release": "^24.2.3",
+    "ts-jest": "^27.1.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^4.9.5"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/@ryansonshine/cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "*.ts": "eslint --cache --cache-location .eslintcache --fix"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "plugins": [
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "conventionalcommits",
+          "releaseRules": [
+            {
+              "type": "build",
+              "scope": "deps",
+              "release": "patch"
+            }
+          ]
+        }
+      ],
+      [
+        "@semantic-release/release-notes-generator",
+        {
+          "preset": "conventionalcommits",
+          "presetConfig": {
+            "types": [
+              {
+                "type": "feat",
+                "section": "Features"
+              },
+              {
+                "type": "fix",
+                "section": "Bug Fixes"
+              },
+              {
+                "type": "build",
+                "section": "Dependencies and Other Build Updates",
+                "hidden": false
+              }
+            ]
+          }
+        }
+      ],
+      "@semantic-release/npm",
+      "@semantic-release/github"
+    ]
+  },
+  "dependencies": {
+    "@segment/analytics-consent-tools": "^2.0.2"
+  }
+}
