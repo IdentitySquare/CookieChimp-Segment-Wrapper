@@ -1,6 +1,6 @@
 {
-  "name": "CookieChimp-Segment-Wrapper",
-  "version": "0.0.0-development",
+  "name": "@identitysquare/cookiechimp-segment-wrapper",
+  "version": "0.0.1",
   "description": "CookieChimp wrapper for Segment",
   "main": "./lib/index.js",
   "files": [
@@ -22,11 +22,7 @@
     "url": "git+https://github.com/IdentitySquare/CookieChimp-Segment-Wrapper.git"
   },
   "license": "MIT",
-  "author": {
-    "name": "Daniel Paul",
-    "email": "danielpaul@users.noreply.github.com",
-    "url": "https://github.com/danielpaul"
-  },
+  "author": "Daniel Paul <danielpaul@users.noreply.github.com> (https://github.com/danielpaul)",
   "engines": {
     "node": ">=12.0"
   },
@@ -117,5 +113,10 @@
   },
   "dependencies": {
     "@segment/analytics-consent-tools": "^2.0.2"
-  }
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "types": "./lib/index.d.ts"
 }

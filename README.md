@@ -42,10 +42,10 @@ withCookieChimpCMP(analytics, { alwaysLoadSegment: true }).load({
 
 [build-img]:https://github.com/IdentitySquare/CookieChimp-Segment-Wrapper/actions/workflows/release.yml/badge.svg
 [build-url]:https://github.com/IdentitySquare/CookieChimp-Segment-Wrapper/actions/workflows/release.yml
-[downloads-img]:https://img.shields.io/npm/dt/CookieChimp-Segment-Wrapper
-[downloads-url]:https://www.npmtrends.com/CookieChimp-Segment-Wrapper
+[downloads-img]:https://img.shields.io/npm/dt/@identitysquare/cookiechimp-segment-wrapper
+[downloads-url]:https://www.npmtrends.com/@identitysquare/cookiechimp-segment-wrapper
 [npm-img]:https://img.shields.io/npm/v/CookieChimp-Segment-Wrapper
-[npm-url]:https://www.npmjs.com/package/CookieChimp-Segment-Wrapper
+[npm-url]:https://www.npmjs.com/package/@identitysquare/cookiechimp-segment-wrapper
 [issues-img]:https://img.shields.io/github/issues/IdentitySquare/CookieChimp-Segment-Wrapper
 [issues-url]:https://github.com/IdentitySquare/CookieChimp-Segment-Wrapper/issues
 [codecov-img]:https://codecov.io/gh/IdentitySquare/CookieChimp-Segment-Wrapper/branch/main/graph/badge.svg
