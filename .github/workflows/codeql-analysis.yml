@@ -1,6 +1,6 @@
 # Reusable workflow for code analysis; to eject, you can replace this file with
 # https://github.com/ryansonshine/ryansonshine/blob/main/.github/workflows/codeql-analysis.yml
-name: "CodeQL"
+name: 'CodeQL'
 
 permissions:
   security-events: write
@@ -14,8 +14,34 @@ on:
     # The branches below must be a subset of the branches above
     branches: [main]
   schedule:
-    - cron: "36 7 * * 6"
+    - cron: '36 7 * * 6'
 
 jobs:
   analyze:
     uses: ryansonshine/ryansonshine/.github/workflows/codeql-analysis.yml@main
+
+  iso-code-scanning:
+    name: Comp AI / ISO code scanning
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      contents: read
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Scan repository
+        uses: aquasecurity/trivy-action@v0.36.0
+        with:
+          scan-type: fs
+          scan-ref: .
+          scanners: vuln,secret,misconfig
+          format: sarif
+          output: trivy-results.sarif
+
+      - name: Upload scan results to GitHub code scanning
+        if: always()
+        uses: github/codeql-action/upload-sarif@v4
+        with:
+          sarif_file: trivy-results.sarif
+          category: comp-ai-iso
